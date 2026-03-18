@@ -7,44 +7,36 @@ import java.util.List;
 
 @RestController
 public class CustomerController {
-    private List<Customer> customers = new ArrayList<>();
+    private final CustomerService customerService;
+
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     @GetMapping("/api/customers")
     public List<Customer> customers() {
-        return customers;
+
+        return customerService.getAll();
     }
 
     @PostMapping("/api/customers")
     public Customer newCustomer(@RequestBody Customer customer) {
-        customers.add(customer);
-        return customer;
+
+        return customerService.saveCustomer(customer);
     }
 
     @GetMapping("/api/customers/{id}")
     public Customer searchCustomer(@PathVariable String id) {
 
-        return customers.stream()
-                .filter(s -> s.getId().equals(id))
-                .findFirst()
-                .orElse(null);
-
+        return customerService.getById(id).orElse(null);
     }
 
     @DeleteMapping("/api/customers/{id}")
-    public Customer deleteCustomer(@PathVariable String id) {
-
-        Customer foundCustomer = customers.stream()
-                .filter(s -> s.getId().equals(id))
-                .findFirst()
-                .orElse(null);
-
-        if (foundCustomer != null) {
-            customers.remove(foundCustomer);
-        }
-
-        return foundCustomer;
-
+    public void deleteCustomer(@PathVariable String id) {
+        customerService.delete(id);
     }
 
-
 }
+
+
+

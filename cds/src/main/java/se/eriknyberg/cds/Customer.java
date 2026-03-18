@@ -1,6 +1,12 @@
 package se.eriknyberg.cds;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Customer {
+   @Id
     private String id;
     private String name;
     private String personalNumber;
@@ -13,6 +19,7 @@ public class Customer {
     private int primaryHousingCost;
 
 
+    public Customer() {}
 
     public Customer(String id, String name, String personalNumber, int monthlySalary, int privateLoanAmount, int mortgageLoanAmount, int studyLoanMonthlyPayment, int numberOfCars,
                     int numberOfSecondaryHousing, int primaryHousingCost) {
