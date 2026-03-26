@@ -4,3 +4,10 @@ spring.datasource.username=postgres
 spring.datasource.password=your_password
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.jpa.hibernate.ddl-auto=update
+
+kalp.flat-tax-rate=0.25
+kalp.living-cost=8000
+kalp.cost-per-car=2300
+kalp.private-loan-cost-multiple=0.12
+kalp.mortgage-loan-cost-multiple=0.07
+kalp.secondary-housing-cost=1500

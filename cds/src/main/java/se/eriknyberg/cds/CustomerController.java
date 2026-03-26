@@ -36,6 +36,12 @@ public class CustomerController {
         customerService.delete(id);
     }
 
+    @GetMapping("/api/customers/{id}/kalp")
+    public KalpResult kalpResult(@PathVariable String id) {
+        return customerService.calculateKalp(id);
+    }
+
+
 }
 
 
