@@ -9,9 +9,11 @@ import java.util.Optional;
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
+    private final KalpCalculator kalpCalculator;
 
-    public CustomerService(CustomerRepository customerRepository) {
+    public CustomerService(CustomerRepository customerRepository, KalpCalculator kalpCalculator) {
         this.customerRepository = customerRepository;
+        this.kalpCalculator = kalpCalculator;
     }
 
     public List<Customer> getAll() {
@@ -25,6 +27,12 @@ public class CustomerService {
     public Customer saveCustomer(Customer customer) {
         customerRepository.save(customer);
         return customer;
+    }
+
+    public KalpResult calculateKalp(String id) {
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Customer not found"));
+        return kalpCalculator.calculate(customer);
     }
 
     public void delete(String id) {
