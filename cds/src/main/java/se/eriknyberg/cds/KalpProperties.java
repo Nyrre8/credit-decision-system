@@ -13,6 +13,8 @@ public class KalpProperties {
     private double privateLoanCostMultiple;
     private double mortgageLoanCostMultiple;
     private double secondaryHousingCost;
+    private double amortizationRateOne;
+    private double amortizationRateTwo;
 
     public double getFlatTaxRate() {
         return flatTaxRate;
@@ -60,5 +62,21 @@ public class KalpProperties {
 
     public void setSecondaryHousingCost(double secondaryHousingCost) {
         this.secondaryHousingCost = secondaryHousingCost;
+    }
+
+    public double getAmortizationRateOne() {
+        return amortizationRateOne;
+    }
+
+    public void setAmortizationRateOne(double amortizationRateOne) {
+        this.amortizationRateOne = amortizationRateOne;
+    }
+
+    public double getAmortizationRateTwo() {
+        return amortizationRateTwo;
+    }
+
+    public void setAmortizationRateTwo(double amortizationRateTwo) {
+        this.amortizationRateTwo = amortizationRateTwo;
     }
 }
