@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Customer {
-   @Id
+    @Id
     private String id;
     private String name;
     private String personalNumber;
@@ -19,10 +19,14 @@ public class Customer {
     private int primaryHousingCost;
 
 
-    public Customer() {}
+    private int propertyValue;
+
+
+    public Customer() {
+    }
 
     public Customer(String id, String name, String personalNumber, int monthlySalary, int privateLoanAmount, int mortgageLoanAmount, int studyLoanMonthlyPayment, int numberOfCars,
-                    int numberOfSecondaryHousing, int primaryHousingCost) {
+                    int numberOfSecondaryHousing, int primaryHousingCost, int propertyValue) {
         this.id = id;
         this.name = name;
         this.personalNumber = personalNumber;
@@ -33,6 +37,7 @@ public class Customer {
         this.numberOfCars = numberOfCars;
         this.numberOfSecondaryHousing = numberOfSecondaryHousing;
         this.primaryHousingCost = primaryHousingCost;
+        this.propertyValue = propertyValue;
     }
 
 
@@ -115,4 +120,15 @@ public class Customer {
     public void setPrimaryHousingCost(int primaryHousingCost) {
         this.primaryHousingCost = primaryHousingCost;
     }
+
+    public int getPropertyValue() {
+        return propertyValue;
+    }
+
+    public void setPropertyValue(int propertyValue) {
+        this.propertyValue = propertyValue;
+    }
+
+
 }
+
